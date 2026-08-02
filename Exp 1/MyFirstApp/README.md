@@ -1,3 +1,5 @@
+# 📘 React Native Assessment
+
 ## 1. What is Chocolatey?
 
 **Chocolatey** is a package manager for Windows that allows you to install, update, and uninstall software using simple command-line commands. It automates software management, making it faster, easier, and more reliable than downloading installers manually.
