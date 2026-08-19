@@ -1,15 +1,15 @@
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { useState } from "react";
 import { Alert, Pressable, StyleSheet, Text, TextInput, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-function RegistrationForm() {
+function RegistrationForm({ setRegister }: any) {
 
     const [name, setName] = useState("")
     const [userName, setUserName] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [confirmPass, setConfirmPass] = useState("")
-    const [validForm, setValidForm] = useState(false)
 
 
     const registerUser = () => {
@@ -20,12 +20,9 @@ function RegistrationForm() {
             Alert.alert("Error", "Confirmed Password not matched...")
         }
         else {
-            setValidForm(true)
+            Alert.alert("Success", "Registration Successful...")
+            setRegister(false)
         }
-    }
-
-    if (validForm) {
-
     }
 
     return (
