@@ -178,7 +178,7 @@ If your device appears with the status **device**, it is successfully connected 
 ### Output
 
 <p align="center">
-  <img src="assets/background-color.png" width="300" height="400" />
+  <img src=" width="300" height="400" />
 </p>
 
 ---
