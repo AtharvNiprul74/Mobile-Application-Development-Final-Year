@@ -20,8 +20,8 @@ function App() {
 }
 
 function AppContent() {
-  // return <FruitsList />
-  return <AboutUs />
+  return <FruitsList />
+  // return <AboutUs />
 }
 
 

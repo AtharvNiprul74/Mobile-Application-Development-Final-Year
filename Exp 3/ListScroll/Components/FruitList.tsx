@@ -3,15 +3,27 @@ import { SafeAreaView } from "react-native-safe-area-context"
 
 function FruitsList() {
     const fruitsList = [
-        { idx: 1, name: "Apple" },
-        { idx: 2, name: "Mango" },
-        { idx: 3, name: "Banana" },
-        { idx: 4, name: "Pinapple" },
-        { idx: 5, name: "JackFruit" },
-        { idx: 6, name: "papaya" },
-        { idx: 7, name: "Cheery" },
-        { idx: 8, name: "Kiwi" }
-    ]
+        { id: 1, name: 'Pineapple' },
+        { id: 2, name: 'Cherry' },
+        { id: 3, name: 'Mango' },
+        { id: 4, name: 'Pear' },
+        { id: 5, name: 'Dragon Fruit' },
+        { id: 6, name: 'Banana' },
+        { id: 7, name: 'Lychee' },
+        { id: 8, name: 'Apple' },
+        { id: 9, name: 'Papaya' },
+        { id: 10, name: 'Kiwi' },
+        { id: 11, name: 'Watermelon' },
+        { id: 12, name: 'Plum' },
+        { id: 13, name: 'Orange' },
+        { id: 14, name: 'Guava' },
+        { id: 15, name: 'Pomegranate' },
+        { id: 16, name: 'Strawberry' },
+        { id: 17, name: 'Coconut' },
+        { id: 18, name: 'Peach' },
+        { id: 19, name: 'Grapes' },
+        { id: 20, name: 'Muskmelon' },
+    ];
     return (
         <>
             <SafeAreaView style={styles.container}>
@@ -19,7 +31,7 @@ function FruitsList() {
                     <Text style={{ fontSize: 30, padding: 10, borderWidth: 2, borderBottomColor: 'black', textAlign: 'center', width: '100%' }}>Fruit Basket</Text>
                     <FlatList
                         data={fruitsList}
-                        keyExtractor={(item) => item.idx.toString()}
+                        keyExtractor={(item) => item.toString()}
                         renderItem={({ item, index }) => (
                             <View style={styles.row}>
                                 <Text style={styles.cell}>{item.name}</Text>
