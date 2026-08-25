@@ -1,4 +1,4 @@
-# React Native Practical – FruitList & About Page
+# 📘 React Native Assessment 3
 
 ## 1. Create FruitList using FlatList
 
