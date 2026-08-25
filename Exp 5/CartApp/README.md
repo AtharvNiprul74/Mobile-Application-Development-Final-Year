@@ -1,97 +1,207 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# 📘 React Native Assessment 5
 
-# Getting Started
+## 1. Create a React Native Application Using Reusable Components
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+Create and use the following four reusable components in a single file/application:
 
-## Step 1: Start Metro
+* `CustomButton`
+* `CustomCard`
+* `CustomHeader`
+* `CustomInput`
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+Use all four components together to build a simple application UI.
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+<p align=center>
+<img src="Images/ShopCart.jpeg" height=500px width=200px>
+</p>
 
-```sh
-# Using npm
-npm start
+---
 
-# OR using Yarn
-yarn start
+# Theory
+
+## 2. What are Reusable Components in React Native? Explain Their Benefits.
+
+**Reusable components are components that are designed to be used multiple times in different parts of an application.**
+
+**Instead of writing the same UI code repeatedly, we create a component once and reuse it wherever required.**
+
+### Benefits of Reusable Components
+
+* **Code Reusability:** The same component can be used multiple times.
+* **Less Code Duplication:** Avoids writing the same code repeatedly.
+* **Easy Maintenance:** Changes can be made in one component and reflected wherever it is used.
+* **Consistency:** Keeps the UI design consistent throughout the application.
+* **Better Organization:** Divides a large application into smaller and manageable components.
+* **Faster Development:** Existing components can be reused to build new screens quickly.
+
+### Example
+
+```jsx
+function CustomButton({ title }) {
+  return <Button title={title} />;
+}
 ```
 
-## Step 2: Build and run your app
+**The `CustomButton` component can be reused multiple times with different titles.**
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+---
 
-### Android
+## 3. What are Props in React Native? Explain the Different Types of Props with Examples.
 
-```sh
-# Using npm
-npm run android
+**Props (Properties) are used to pass data from a parent component to a child component.**
 
-# OR using Yarn
-yarn android
+**Props are read-only, which means the child component should not directly modify the props received from its parent.**
+
+### Different Types of Props
+
+### 1. String Props
+
+**String props are used to pass text values.**
+
+```jsx
+<CustomHeader title="Welcome" />
 ```
 
-### iOS
+### 2. Number Props
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
+**Number props are used to pass numeric values.**
 
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
+```jsx
+<CustomCard price={500} />
 ```
 
-Then, and every time you update your native dependencies, run:
+### 3. Boolean Props
 
-```sh
-bundle exec pod install
+**Boolean props are used to pass `true` or `false` values.**
+
+```jsx
+<CustomButton disabled={true} />
 ```
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+### 4. Array Props
 
-```sh
-# Using npm
-npm run ios
+**Array props are used to pass multiple values as an array.**
 
-# OR using Yarn
-yarn ios
+```jsx
+<CustomCard items={["Apple", "Mango", "Banana"]} />
 ```
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+### 5. Object Props
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+**Object props are used to pass multiple related values as an object.**
 
-## Step 3: Modify your app
+```jsx
+<CustomCard
+  user={{
+    name: "Atharv",
+    age: 21,
+  }}
+/>
+```
 
-Now that you have successfully run the app, let's make changes!
+### 6. Function Props
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+**Function props are used to pass a function from a parent component to a child component.**
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+```jsx
+<CustomButton onPress={() => console.log("Button Pressed")} />
+```
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+---
 
-## Congratulations! :tada:
+## 4. How can Props be Passed from a Parent Component to a Reusable Child Component?
 
-You've successfully run and modified your React Native App. :partying_face:
+**Props are passed from a parent component to a child component by adding attributes to the child component.**
 
-### Now what?
+### Parent Component
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
+```jsx
+function App() {
+  return (
+    <CustomButton
+      title="Login"
+      color="blue"
+    />
+  );
+}
+```
 
-# Troubleshooting
+### Reusable Child Component
 
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+```jsx
+function CustomButton({ title, color }) {
+  return (
+    <Button
+      title={title}
+      color={color}
+    />
+  );
+}
+```
 
-# Learn More
+**Here, the parent component passes `title` and `color` as props to the `CustomButton` component.**
 
-To learn more about React Native, take a look at the following resources:
+**The child component receives these props through its function parameters and uses them to display the required UI.**
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+### Flow
+
+```text
+Parent Component
+       ↓
+   Props Passed
+       ↓
+Reusable Child Component
+       ↓
+    UI Displayed
+```
+
+---
+
+## 5. Explain How All Four Reusable Components Can be Used Together in a Single File.
+
+**The four reusable components `CustomHeader`, `CustomInput`, `CustomCard`, and `CustomButton` can be created in the same file and then used together inside the main `App` component.**
+
+### Example Structure
+
+```jsx
+function CustomHeader({ title }) {
+  return <Text>{title}</Text>;
+}
+
+function CustomInput({ placeholder }) {
+  return <TextInput placeholder={placeholder} />;
+}
+
+function CustomCard({ title }) {
+  return <View><Text>{title}</Text></View>;
+}
+
+function CustomButton({ title }) {
+  return <Button title={title} />;
+}
+
+export default function App() {
+  return (
+    <View>
+      <CustomHeader title="My Application" />
+
+      <CustomInput placeholder="Enter your name" />
+
+      <CustomCard title="Welcome to React Native" />
+
+      <CustomButton title="Submit" />
+    </View>
+  );
+}
+```
+
+**In this application:**
+
+* **`CustomHeader`** displays the application header.
+* **`CustomInput`** provides an input field for the user.
+* **`CustomCard`** displays information inside a card.
+* **`CustomButton`** provides a button for user interaction.
+
+**All four components work together to create a simple and reusable application UI.**
+
+---
