@@ -1,97 +1,140 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# 📘 React Native Assessment 4
 
-# Getting Started
+## 1. What are Props in React Native?
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+**Props (Properties)** are used to pass data from a parent component to a child component.
 
-## Step 1: Start Metro
+Props are **read-only**, which means a child component should not directly modify the props received from its parent.
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+---
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+## 2. Write Two Examples of React Native Props
 
-```sh
-# Using npm
-npm start
+### Example 1
 
-# OR using Yarn
-yarn start
+```jsx
+function Welcome({ name }) {
+  return <Text>Hello {name}</Text>;
+}
+
+<Welcome name="Atharv" />
 ```
 
-## Step 2: Build and run your app
+### Example 2
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+```jsx
+function Button({ title }) {
+  return <Text>{title}</Text>;
+}
 
-### Android
-
-```sh
-# Using npm
-npm run android
-
-# OR using Yarn
-yarn android
+<Button title="Login" />
 ```
 
-### iOS
+---
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
+## 3. Difference Between React Native Props and React Props
 
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
+Props work in the same way in both React and React Native. The main difference is the type of components used.
 
-```sh
-bundle install
+| React Props | React Native Props |
+|---|---|
+| Used in web applications. | Used in mobile applications. |
+| Uses HTML elements like `<div>` and `<button>`. | Uses native components like `<View>` and `<Text>`. |
+| Runs in a web browser. | Runs on Android and iOS devices. |
+
+### React Example
+
+```jsx
+function Welcome({ name }) {
+  return <div>Hello {name}</div>;
+}
+
+<Welcome name="Atharv" />
 ```
 
-Then, and every time you update your native dependencies, run:
+### React Native Example
 
-```sh
-bundle exec pod install
+```jsx
+function Welcome({ name }) {
+  return <Text>Hello {name}</Text>;
+}
+
+<Welcome name="Atharv" />
 ```
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+---
 
-```sh
-# Using npm
-npm run ios
+## 4. What is `useState`?
 
-# OR using Yarn
-yarn ios
+**`useState`** is a Hook used to create and manage state in a functional component.
+
+It allows a component to store a value and update that value when required.
+
+### Example
+
+```jsx
+const [count, setCount] = useState(0);
+
+<Button
+  title={`Count: ${count}`}
+  onPress={() => setCount(count + 1)}
+/>
 ```
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+- `count` stores the current value.
+- `setCount` updates the value.
+- When the state changes, the component re-renders.
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+---
 
-## Step 3: Modify your app
+## 5. What is `useEffect`?
 
-Now that you have successfully run the app, let's make changes!
+**`useEffect`** is a Hook used to perform side effects such as fetching data, running timers, subscribing to events, or executing code after rendering.
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+### Example
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+```jsx
+useEffect(() => {
+  console.log("Component loaded");
+}, []);
+```
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+The empty dependency array `[]` means the effect runs after the initial render.
 
-## Congratulations! :tada:
+---
 
-You've successfully run and modified your React Native App. :partying_face:
+## 6. What is `useContext`?
 
-### Now what?
+**`useContext`** is a Hook used to access shared data from React Context without passing props through every component.
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
+It helps avoid **prop drilling** when the same data is required by multiple components.
 
-# Troubleshooting
+### Example
 
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+```jsx
+const theme = useContext(ThemeContext);
 
-# Learn More
+<Text>{theme}</Text>
+```
 
-To learn more about React Native, take a look at the following resources:
+Here, `useContext` retrieves the value provided by `ThemeContext`.
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+---
+
+## 7. What is `useRef`?
+
+**`useRef`** is a Hook used to store a value that persists between renders without causing a re-render when the value changes.
+
+It can also be used to create a reference to a component.
+
+### Example
+
+```jsx
+const inputRef = useRef();
+
+<TextInput ref={inputRef} />
+```
+
+Here, `inputRef` can be used to access or control the `TextInput` component.
+
+---
