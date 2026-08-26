@@ -12,7 +12,7 @@ const CustomHeader = ({
 }: CustomHeaderProps) => {
     return (
         <View style={styles.header}>
-            <Text style={styles.title}>🛍️ {title}</Text>
+            <Text style={styles.title}>{title}</Text>
             <Text style={styles.subtitle}>{subtitle}</Text>
         </View>
     );

@@ -135,7 +135,7 @@ function App() {
 
           <View>
             <Text style={styles.summaryLabel}>
-              🛒 Cart Items
+              Cart Items
             </Text>
 
             <Text style={styles.summaryValue}>
@@ -145,7 +145,7 @@ function App() {
 
           <View>
             <Text style={styles.summaryLabel}>
-              💰 Total
+              Total
             </Text>
 
             <Text style={styles.summaryValue}>
