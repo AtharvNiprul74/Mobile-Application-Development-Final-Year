@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "787826322301",
+    "project_id": "devicefeatures-dfca0",
+    "storage_bucket": "devicefeatures-dfca0.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:787826322301:android:5695b8bca3c74a9158fa14",
+        "android_client_info": {
+          "package_name": "com.devicefeaturesapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6YGFExxGVNr2bwjRLhtlZu7KlIOCRlVw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

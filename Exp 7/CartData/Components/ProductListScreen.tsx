@@ -156,3 +156,4 @@ const styles = StyleSheet.create({
         color: "#6C4AB6",
     },
 });
+
